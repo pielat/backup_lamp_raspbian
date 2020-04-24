@@ -72,7 +72,7 @@ sudo find $backup_target/databases -type f -mtime +$age -name '*.gz' -execdir rm
 
 
 if [ "$(ls -A $backup_target/www)" ]; then #checking if backup directory is empty to avoid error on initial run
-	sudo rdiff-backup --remove-older-than ${age}D $backup_target/www
+	sudo rdiff-backup --remove-older-than ${age}D --force $backup_target/www
 fi
 echo ""
 
